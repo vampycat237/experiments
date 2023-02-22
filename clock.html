@@ -9,10 +9,10 @@
         <div class="topbar">
             <div class="title">
                 <div id="icon"></div>
-                <span>vampy's lab: directory</span>
+                <span>vampy's lab: clock experiments</span>
             </div>
             <div class="nav">
-                <button id="info" aria-label="what am i looking at" onclick="infoPopUp('this one is mostly me figuring out the Date object, and playing with ideas the bayfox strange merchant gave me :)<br><br>the update clock button refreshes the current time btw!')">i</button>
+                <button id="info" aria-label="info" onclick="infoPopUp('this one is mostly me figuring out the Date object, and playing with ideas the bayfox strange merchant gave me :)<br><br>times should be in your local time zone! support for entering a time in another time zone coming soon.')">i</button>
                 <a id="minimize" aria-label="back to the directory" href="index.html">_</a>
                 <a id="close" aria-label="close the lab" href="https://vampycat237.github.io">x</a>
             </div>
@@ -30,7 +30,7 @@
             <div class="padded">
                 <p id="popup-text">message goes here</p>
                 <input id="popup-input" type="datetime-local" style="display:none;"/>
-                <button id="popup-send" onclick="setRecordedClock(popup.input.value)" style="display:none;">apply</button>
+                <button id="popup-send" onclick="setRecordedClock(popup.input.value); closePopUp();" style="display:none;">apply</button>
             </div>
         </div>
 
@@ -45,8 +45,8 @@
                     <span id="recorded-time">[recorded time]</span>
                 </p>
                 <p>
-                    <span>time since recorded date & time: </span>
-                    <span id="how-long-since">why do you think i know</span>
+                    <span id="how-long-since">x seconds since</span>
+                    <span> the recorded time</span>
                 </p>
                 <button onclick="updateClock();">update clock</button>
                 <button onclick="inputPopUp('input new recorded time below.');">set recorded time</button>

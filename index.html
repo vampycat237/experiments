@@ -12,7 +12,7 @@
                 <span>vampy's lab: directory</span>
             </div>
             <div class="nav">
-                <button id="info" aria-label="what am i looking at" onclick="infoPopUp('welcome to the lab :)<br><br>the stuff here is pretty random but take a look around!<br><br>the world is your oyster :)')">i</button>
+                <button id="info" aria-label="info" onclick="infoPopUp('welcome to the lab :)<br><br>the buttons at the top right work like this:<br>[i] will give you information<br>[_] will send you back to the directory<br> [x] will send you to my site')">i</button>
                 <a id="minimize" aria-label="back to the directory" href="index.html">_</a>
                 <a id="close" aria-label="close the lab" href="https://vampycat237.github.io">x</a>
             </div>
@@ -30,6 +30,7 @@
             <div class="padded">
                 <p id="popup-text">message goes here</p>
                 <input id="popup-input" style="display:none;" />
+                <button id="popup-send" onclick="closePopUp();" style="display:none;">apply</button>
             </div>
         </div>
         

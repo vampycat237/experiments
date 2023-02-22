@@ -107,8 +107,8 @@ button:hover, a:hover {
     position: absolute;
     border: solid var(--border_width);
     background-color: var(--background_color);
-    left: 40%;
-    right: 40%;
+    left: 35%;
+    right: 35%;
     top: 15%;
 }
 
@@ -136,4 +136,21 @@ input {
 button, .gallery-item > a, .nav > a {
     border: solid var(--border_width);
     padding: var(--spacing);
+}
+
+/*media query breakpoints based on https://docs.microsoft.com/en-us/windows/apps/design/layout/screen-sizes-and-breakpoints-for-responsive-design*/
+/*tablet/laptop (medium screens, 1007px - 641px)*/
+@media screen and (max-width: 1007px) {
+    #popup {
+        left: 30%;
+        right: 30%;
+    }
+}
+
+/*mobile phone (small screens, 640px or less)*/
+@media screen and (max-width: 640px) {
+    #popup {
+        left: 10%;
+        right: 10%;
+    }
 }
