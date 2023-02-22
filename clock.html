@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>vampy's lab [clock]</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div class="page-container">
+        <div class="topbar">
+            <div class="title">
+                <div id="icon"></div>
+                <span>vampy's lab: directory</span>
+            </div>
+            <div class="nav">
+                <button id="info" aria-label="what am i looking at" onclick="infoPopUp('this one is mostly me figuring out the Date object, and playing with ideas the bayfox strange merchant gave me :)<br><br>the update clock button refreshes the current time btw!')">i</button>
+                <a id="minimize" aria-label="back to the directory" href="index.html">_</a>
+                <a id="close" aria-label="close the lab" href="https://vampycat237.github.io">x</a>
+            </div>
+        </div>
+
+        <div id="popup" style="display:none;">
+            <div class="topbar">
+                <div class="title">
+                    <span id="popup-title">this is a popup</span>
+                </div>
+                <div class="nav">
+                    <button id="close-popup" onclick="closePopUp()">x</button>
+                </div>
+            </div>
+            <div class="padded">
+                <p id="popup-text">message goes here</p>
+            </div>
+        </div>
+
+        <div>
+            <div id="clock">
+                <p>
+                    <span>current date & time: </span>
+                    <span id="current-time">00:00:00 YYYY/MM/DD</span>
+                </p>
+                <p>
+                    <span>recorded date & time: </span>
+                    <span id="recorded-time">00:00:00 YYYY/MM/DD</span>
+                </p>
+                <p>
+                    <span>time since recorded date & time: </span>
+                    <span id="how-long-since">why do you think i know</span>
+                </p>
+                <button onclick="updateClock();">update clock</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/popup.js"></script>
+    <script src="js/clock.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+/*based on my main site :)*/
+@font-face {
+    font-family: "Softy Sharp";
+    src: url('assets/fonts/softy-sharp.ttf');
+}
+
+@font-face {
+    font-family: Softy;
+    src: url('assets/fonts/softy.ttf');
+}
+
+:root {
+    --header_fill: #fff;
+    --pagecontainer_fill: #ffffffc0;
+    --dropdown_fill: #ffffff00;
+    --dropdownselected_fill: #ffffffa0;
+
+    --background_color: #000;
+    --background_color2: #002200;
+    --text_color: #75ff70;
+    --text_hover: #ddffcc;
+    --warn_text: #dd3322;
+
+    --transition_time: 2s;
+    --font_size: 18px;
+    --spacing: 10px;
+    --border_width: 2px;
+}
+
+body {
+    background-color: var(--background_color);
+    background: repeating-linear-gradient(0deg,var(--background_color),var(--background_color2) 10px);
+    color: var(--text_color);
+    border-color: var(--text_color);
+    font-size: var(--font_size);
+    text-align: center;
+    font-family: "Softy Sharp", "Lucida Console", "Courier New", monospace;
+    margin: 0px;
+}
+
+.page-container {
+    border: solid var(--border_width) var(--text_color);
+    padding-bottom: var(--spacing);
+}
+
+h1 {
+    font-weight: inherit;
+}
+
+strong {
+    font-weight: bolder;
+}
+
+button, .nav > a {
+    font-family: Softy, "Softy Sharp", "Lucida Console", "Courier New", monospace;
+    font-size: 14px;
+}
+
+button, a {
+    color: inherit;
+    border-color: inherit;
+    background-color: var(--background_color);
+}
+
+button:hover, a:hover {
+    color: var(--text_hover);
+    border-color: var(--text_hover);
+    background-color: var(--background_color2);
+}
+
+.topbar {
+    display: flex;
+    border-bottom: solid var(--border_width);
+    justify-content: space-between;
+}
+
+.title, .nav {
+    display: flex;
+    
+}
+
+.title {
+    align-items: center;
+}
+
+.title span {
+    padding-left: var(--spacing);
+}
+
+#icon {
+    background-image: url("https://i.imgur.com/KC93Dtx.png");
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+}
+
+.nav > * {
+    width: 48px;
+    margin: -2px;
+    box-sizing: border-box;
+}
+
+#popup {
+    position: absolute;
+    border: solid var(--border_width);
+    background-color: var(--background_color);
+    left: 40%;
+    right: 40%;
+    top: 15%;
+}
+
+.padded {
+    padding: var(--spacing);
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--spacing);
+}
+
+.gallery-item {
+    display:flex;
+}
+
+button, .gallery-item > a, .nav > a {
+    border: solid var(--border_width);
+    padding: var(--spacing);
+}

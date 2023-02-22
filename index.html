@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>vampy's lab</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div class="page-container">
+        <div class="topbar">
+            <div class="title">
+                <div id="icon"></div>
+                <span>vampy's lab: directory</span>
+            </div>
+            <div class="nav">
+                <button id="info" aria-label="what am i looking at" onclick="infoPopUp('welcome to the lab :)<br><br>the stuff here is pretty random but take a look around!<br><br>the world is your oyster :)')">i</button>
+                <a id="minimize" aria-label="back to the directory" href="index.html">_</a>
+                <a id="close" aria-label="close the lab" href="https://vampycat237.github.io">x</a>
+            </div>
+        </div>
+
+        <div id="popup" style="display:none;">
+            <div class="topbar">
+                <div class="title">
+                    <span id="popup-title">this is a popup</span>
+                </div>
+                <div class="nav">
+                    <button id="close-popup" onclick="closePopUp()">x</button>
+                </div>
+            </div>
+            <div class="padded">
+                <p id="popup-text">message goes here</p>
+            </div>
+        </div>
+        
+        <div id="header">
+            <h1>hi! welcome to the <strong>directory</strong> for my silly little experiments pages.</h1>
+            <p>below you can find links to the experiments :)</p>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item">
+                <a href="clock.html">clock</a>
+            </div>
+            <div class="gallery-item">
+                <a href="https://vampycat237.github.io">get me out of here</a>
+            </div>
+        </div>
+    </div>
+    <script src="js/popup.js"></script>
+</body>
+</html>
