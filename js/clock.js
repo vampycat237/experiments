@@ -8,12 +8,19 @@ const clock = {
 }
 
 var currentTime = new Date();
+var recordedTime = new Date();
 //const recordedTime;
 
 //declaring our functions!
 function updateClock() {
     currentTime = new Date();
     clock.current.innerHTML = currentTime.toLocaleString();
+    clock.recorded.innerHTML = recordedTime.toLocaleString();
+}
+
+function setRecordedClock(datetime) {
+    recordedTime = new Date(datetime);
+    updateClock();
 }
 
 //things we want to run right away

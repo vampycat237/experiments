@@ -19,7 +19,7 @@
     --background_color2: #002200;
     --text_color: #75ff70;
     --text_hover: #ddffcc;
-    --warn_text: #dd3322;
+    --text_warn: #ffff22;
 
     --transition_time: 2s;
     --font_size: 18px;
@@ -51,6 +51,7 @@ strong {
     font-weight: bolder;
 }
 
+/*BUTTON STYLES*/
 button, .nav > a {
     font-family: Softy, "Softy Sharp", "Lucida Console", "Courier New", monospace;
     font-size: 14px;
@@ -68,6 +69,7 @@ button:hover, a:hover {
     background-color: var(--background_color2);
 }
 
+/*WINDOW STYLES*/
 .topbar {
     display: flex;
     border-bottom: solid var(--border_width);
@@ -100,6 +102,7 @@ button:hover, a:hover {
     box-sizing: border-box;
 }
 
+/*POPUP STYLES*/
 #popup {
     position: absolute;
     border: solid var(--border_width);
@@ -109,10 +112,16 @@ button:hover, a:hover {
     top: 15%;
 }
 
+input {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .padded {
     padding: var(--spacing);
 }
 
+/*GALLERY STYLES*/
 .gallery {
     display: flex;
     flex-direction: row;

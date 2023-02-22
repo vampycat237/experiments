@@ -29,6 +29,8 @@
             </div>
             <div class="padded">
                 <p id="popup-text">message goes here</p>
+                <input id="popup-input" type="datetime-local" style="display:none;"/>
+                <button id="popup-send" onclick="setRecordedClock(popup.input.value)" style="display:none;">apply</button>
             </div>
         </div>
 
@@ -36,17 +38,18 @@
             <div id="clock">
                 <p>
                     <span>current date & time: </span>
-                    <span id="current-time">00:00:00 YYYY/MM/DD</span>
+                    <span id="current-time">[current time]</span>
                 </p>
                 <p>
                     <span>recorded date & time: </span>
-                    <span id="recorded-time">00:00:00 YYYY/MM/DD</span>
+                    <span id="recorded-time">[recorded time]</span>
                 </p>
                 <p>
                     <span>time since recorded date & time: </span>
                     <span id="how-long-since">why do you think i know</span>
                 </p>
                 <button onclick="updateClock();">update clock</button>
+                <button onclick="inputPopUp('input new recorded time below.');">set recorded time</button>
             </div>
         </div>
     </div>
