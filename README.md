@@ -1,4 +1,7 @@
 # experiments
 html, js, and css experiments! for fun and learning
 
-quick note in here, the fonts used in this are made by me and are NOT intended to be freely used & distributed. I need to account for them in my license but for now just know that the MIT license is intended to apply to the CODE (html, javascript, css), not the FONTS or any IMAGES.
+Note on licenses: The license found in the root folder of this repository is intended to cover the HTML, CSS, and Javascript ("Code") hosted here.
+The fonts have their own, seperate license and readme regarding that license.
+Image files may eventually have their own license, but there are no image files contained in the repository at the time of writing, so this license has not been added yet.
+The license will likely be updated as I figure this out.
