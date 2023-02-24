@@ -35,6 +35,6 @@ function infoPopUp(msg) {
 
 function inputPopUp(prompt) {
     openPopUp(prompt, "input");
-    popup.input.style.display = "inline";
+    popup.input.style.display = "block";
     popup.inputSend.style.display = "inline";
 }

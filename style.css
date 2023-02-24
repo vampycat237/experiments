@@ -69,6 +69,10 @@ button:hover, a:hover {
     background-color: var(--background_color2);
 }
 
+a:link, a:visited {
+    text-decoration: none;
+}
+
 /*WINDOW STYLES*/
 .topbar {
     display: flex;

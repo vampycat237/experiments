@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>vampy's lab</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="styles/watersort.css" />
+</head>
+<body onload="main()">
+    <div class="page-container">
+        <div class="topbar">
+            <div class="title">
+                <div id="icon"></div>
+                <span>vampy's lab: another water sort clone</span>
+            </div>
+            <div class="nav">
+                <button id="info" aria-label="info" onclick="infoPopUp('its another one of those water color sort clone games sorry.<br>im lowkey obsessed with these tbh<br>anyway its pretty straightforward! same colors can stack on top of each other, sort them all to full tubes to win!')">i</button>
+                <a id="minimize" aria-label="back to the directory" href="index.html">_</a>
+                <a id="close" aria-label="close the lab" href="https://vampycat237.github.io">x</a>
+            </div>
+        </div>
+
+        <div id="popup" style="display:none;">
+            <div class="topbar">
+                <div class="title">
+                    <span id="popup-title">this is a popup</span>
+                </div>
+                <div class="nav">
+                    <button id="close-popup" onclick="closePopUp()">x</button>
+                </div>
+            </div>
+            <div class="padded">
+                <p id="popup-text">message goes here</p>
+                <input id="popup-input" style="display:none;" />
+                <button id="popup-send" onclick="closePopUp();loadLevel(popup.input.value)" style="display:none;">load</button>
+            </div>
+        </div>
+
+        <div id="header">
+            <p>yeahh its yet another water sort clone thing sowwy.<br>all puzzles are randomly generated :)</p>
+        </div>
+
+        <div id="controls">
+            <button onclick="generateLevel()">new puzzle</button>
+            <button onclick="loadLevel(levelStartSave)">reset puzzle</button>
+            <button onclick="openPopUp('your save key is<br>'+saveLevel(),'save puzzle')">save puzzle</button>
+            <button onclick="inputPopUp('input the save key you want to load<br>(this will wipe your current save)<br>(if you got this from somewhere else it might not be solveable)','load puzzle')">load puzzle</button>
+            <button onclick="addEmptyTube()">add tube</button>
+        </div>
+
+        <div id="watersort">
+            <div class="watertube">
+                <div class="water top"></div>
+                <div class="water topmid"></div>
+                <div class="water botmid"></div>
+                <div class="water bottom"></div>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/popup.js"></script>
+    <script src="js/watersort.js"></script>
+</body>
+</html>

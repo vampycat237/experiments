@@ -1,0 +1,79 @@
+/*holds styles specific to watersort.html*/
+:root {
+    --water_0 : transparent;
+    --water_1 : #00f;
+    --water_2 : #0ff;
+    --water_3 : #0f0;
+    --water_4 : #ff0;
+    --water_5 : #f00;
+    --water_6 : #f0f;
+
+    --transition_time: 1s;
+}
+
+#controls {
+    padding-bottom: var(--spacing);
+}
+
+#watersort {
+    margin-left: var(--spacing);
+    margin-right: var(--spacing);
+    gap: var(--spacing);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*the containers for 4 measures of water. they should be roughly tube, glass, or beaker shaped*/
+.watertube {
+    width: 50px;
+    border: solid var(--border_width);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: clip;
+    cursor: pointer;
+
+    margin-top: var(--spacing);
+    margin-bottom: 0px;
+
+    /*transition: var(--transition_time);*/
+}
+
+.watertube.selected, .watertube:hover {
+    margin-top: 0px;
+    margin-bottom: var(--spacing);
+    border-color: var(--text_hover);
+}
+
+/*Water styles. Includes sizing and colors*/
+.water {
+    height: 50px;
+}
+
+.water0 {
+    background-color: var(--water_0);
+}
+
+.water1 {
+    background-color: var(--water_1);
+}
+
+.water2 {
+    background-color: var(--water_2);
+}
+
+.water3 {
+    background-color: var(--water_3);
+}
+
+.water4 {
+    background-color: var(--water_4);
+}
+
+.water5 {
+    background-color: var(--water_5);
+}
+
+.water6 {
+    background-color: var(--water_6);
+}
