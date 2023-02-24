@@ -86,7 +86,7 @@ class WaterTube {
             //we poured to the other tube! get rid of the level from THIS tube now
             this.contents[this.howFull() - 1] = 0;
 
-            console.log("poured type "+typePoured+"!");
+            //console.log("poured type "+typePoured+"!");
             //IF our next level is the same as the former, try to pour again (recursively ig?)! This will allow pouring matching water much more efficiently. No need to do anything with the return though
             if (typePoured == this.getTopWaterType()) this.pourTo(otherTube, level+1);
 
@@ -292,9 +292,15 @@ function render() {
 //Changes the "selected" tube to the given one!
 function select(i) {
     //console.log("selection going from " + selectedTube + " to " + i);
-    if (i == selectedTube || selectedTube == -1) {
-        //same tube as before or was previously invalid? toggle selection
-        document.getElementById(i).classList.toggle("selected");
+    if (i == selectedTube) {
+        //same tube as before? deselect and set selected to invalid
+        document.getElementById(i).classList.remove("selected");
+
+        selectedTube = -1;
+    }
+    else if (selectedTube == -1) {
+        //tube was previously invalid? select the new tube
+        document.getElementById(i).classList.add("selected");
 
         selectedTube = i;
     }
@@ -308,6 +314,8 @@ function select(i) {
 
         document.getElementById(i).classList.add("selected");
 
+        //deselect tubes
+        selectedTube = -1;
     }
     else {
         //two different tubes! try pour
@@ -318,6 +326,7 @@ function select(i) {
         }
         //document.getElementById(selectedTube).classList.remove("selected");
 
+        //deselect tubes
         selectedTube = -1;
         render();
     }
