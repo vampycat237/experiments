@@ -26,7 +26,8 @@ class WaterTube {
         }
         //"Encrypted"/ stored contents: Parse!
         else {
-            console.log(typeof contents);
+            //console.log(typeof contents);
+            this.contents = [contents[0], contents[1], contents[2], contents[3]];
         }
 
         if (ID != null) {
