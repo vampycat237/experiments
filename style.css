@@ -91,11 +91,12 @@ a:link, a:visited {
 
 .title span {
     padding-left: var(--spacing);
+    text-align: left;
 }
 
 #icon {
     background-image: url("https://i.imgur.com/KC93Dtx.png");
-    background-size: contain;
+    background-size: cover;
     width: 32px;
     height: 32px;
 }
@@ -156,5 +157,18 @@ button, .gallery-item > a, .nav > a {
     #popup {
         left: 10%;
         right: 10%;
+    }
+    :root {
+        --font_size: 24px;
+    }
+    button, .nav > a {
+        font-size: 18px;
+    }
+    #icon {
+        min-width: 40px;
+        min-height: 40px;
+    }
+    h1 {
+        font-size: 34px;
     }
 }

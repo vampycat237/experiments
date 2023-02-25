@@ -22,6 +22,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 /*the containers for 4 measures of water. they should be roughly tube, glass, or beaker shaped*/
@@ -80,4 +81,20 @@
 
 .water6 {
     background-color: var(--water_6);
+}
+
+/*mobile phone (small screens, 640px or less)*/
+@media screen and (max-width: 640px) {
+    #watersort {
+        margin: 0;
+        gap: 4vw;
+    }
+    .watertube {
+        width: 17vw;
+        border-bottom-left-radius: 10vw;
+        border-bottom-right-radius: 10vw;
+    }
+    .water {
+        height: 17vw;
+    }
 }
