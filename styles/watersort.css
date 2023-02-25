@@ -39,9 +39,13 @@
     /*transition: var(--transition_time);*/
 }
 
-.watertube.selected, .watertube:hover {
+.watertube.selected {
     margin-top: 0px;
     margin-bottom: var(--spacing);
+    border-color: var(--text_hover);
+}
+
+.watertube:hover {
     border-color: var(--text_hover);
 }
 
