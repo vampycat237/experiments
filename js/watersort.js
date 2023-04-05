@@ -8,6 +8,10 @@ const watersort = {
 //Static variables
 //Matches the number representing the water type (as the index) to the css variable to determine its color. Unused right now but can be used for customization later!
 const waterTypeKey = [];
+const waterPresets = {
+    default:    ['#00f', '#0ff', '#0f0', '#ff0', '#f00', '#f0f'],
+    monochrome: ['#fff', '#ddd', '#bbb', '#999', '#777', '#555']
+    }
 //Holds the WaterTubes in play.
 var waterTubes = [];
 //Tracks what tube is selected.
@@ -163,10 +167,19 @@ function getWaterColors() {
 
     //Number of colors is known ahead of time, so we can do a for loop on that
     for (let i = 0; i <= 6; i++) {
-        waterTypeKey.push(computedStyles.getPropertyValue('--water_'+i));
+        waterTypeKey.push(computedStyles.getPropertyValue('--water_' + i));
     }
 
-    //return computedStyles;
+    console.log(waterTypeKey);
+}
+
+//Sets water colors in CSS based on given colors array. Do not include water_0 - array should be length 5
+function setWaterColors(presetName) {
+    const root = document.querySelector(':root');
+    for (let i = 1; i <= 6; i++) {
+        root.style.setProperty('--water_'+i, waterPresets[presetName][i-1]);
+    }
+    
 }
 
 //TODO

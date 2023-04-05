@@ -12,9 +12,9 @@
                 <span>vampy's lab: directory</span>
             </div>
             <div class="nav">
-                <button id="info" aria-label="info" onclick="infoPopUp('welcome to the lab :)<br><br>the buttons at the top right work like this:<br>[i] will give you information<br>[_] will send you back to the directory<br> [x] will send you to my site')">i</button>
-                <a id="minimize" aria-label="back to the directory" href="index.html">_</a>
-                <a id="close" aria-label="close the lab" href="https://vampycat237.github.io">x</a>
+                <button id="info" title="info" onclick="fancyInfoPopUp()">i</button>
+                <a id="minimize" title="to the directory" href="index.html">_</a>
+                <a id="close" title="to my website" href="https://vampycat237.github.io">x</a>
             </div>
         </div>
 
@@ -24,7 +24,9 @@
                     <span id="popup-title">this is a popup</span>
                 </div>
                 <div class="nav">
-                    <button id="close-popup" onclick="closePopUp()">x</button>
+                    <button id="popup-pageback" title="previous page" onclick="infoTurnPage(-1)"><</button>
+                    <button id="popup-pagenext" title="next page" onclick="infoTurnPage(1)">></button>
+                    <button id="close-popup" title="close popup" onclick="closePopUp()">x</button>
                 </div>
             </div>
             <div class="padded">
@@ -33,7 +35,7 @@
                 <button id="popup-send" onclick="closePopUp();" style="display:none;">apply</button>
             </div>
         </div>
-        
+
         <div id="header">
             <h1>hi! welcome to the <strong>directory</strong> for my silly little experiments pages.</h1>
             <p>below you can find links to the experiments :)</p>
@@ -49,5 +51,8 @@
         </div>
     </div>
     <script src="js/popup.js"></script>
+    <script>
+        info.pages.push(['directory', 'this is the hub for my little experiements :D<br>hope you have fun messing around with them!<br>(there are multiple pages on these now btw!! check out those buttons above!)']);
+    </script>
 </body>
 </html>
