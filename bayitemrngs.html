@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>vampy's lab</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div class="page-container">
+        <div class="topbar">
+            <div class="title">
+                <div id="icon"></div>
+                <span>vampy's lab: bayfox potion and pet RNGs</span>
+            </div>
+            <div class="nav">
+                <button id="info" title="info" onclick="fancyInfoPopUp()">i</button>
+                <a id="minimize" title="to the directory" href="index.html">_</a>
+                <a id="close" title="to my website" href="https://vampycat237.github.io">x</a>
+            </div>
+        </div>
+
+        <div id="popup" style="display:none;">
+            <div class="topbar">
+                <div class="title">
+                    <span id="popup-title">this is a popup</span>
+                </div>
+                <div class="nav">
+                    <button id="popup-pageback" title="previous page" onclick="infoTurnPage(-1)"><</button>
+                    <button id="popup-pagenext" title="next page" onclick="infoTurnPage(1)">></button>
+                    <button id="close-popup" title="close popup" onclick="closePopUp()">x</button>
+                </div>
+            </div>
+            <div class="padded">
+                <p id="popup-text">message goes here</p>
+                <!--for requesting input-->
+                <div id="popup-input-container">
+                    <input id="popup-input" style="display:none;" />
+                    <button id="popup-send" onclick="closePopUp();" style="display:none;">load</button>
+                </div>
+                <!--for requesting an option from a set list of options!-->
+                <div id="popup-select-container">
+                    <select id="popup-select">
+                    </select>
+                    <button id="popup-select-send" onclick="closePopUp();">apply</button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div id="output">
+                <h2>hit space or enter to randomize (or push the button)</h2>
+                <p>
+                    <span>random potion (<span id="potionPool"></span>): </span>
+                    <span id="potion">[potion]</span>
+                </p>
+                <p>
+                    <span>random common <span id="petPool">pet</span>: </span>
+                    <span id="pet">[pet]</span>
+                </p>
+                <button onclick="randomize();">randomize</button>
+                <button onclick="selectPopUp('select the set of potions to use.', ['common', 'mermaid', 'halloween', 'all'], potions.setPool);">potions...</button>
+                <button onclick="selectPopUp('select the set of pets to use.', ['all', 'pockats', 'furzeballs', 'gummy sharks', 'storm cats', 'tortured droplets', 'long snakes'], commonPets.setPool);">pets...</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/popup.js"></script>
+    <script>
+        //info
+        info.pages.push(['bay mod rngs', 'i made this one specifically to make granting nitro rewards a little easier!<br><br>this will just randomly pick a pet and a potion.<br>by default, potions DO include mermaid and halloween potions, and pets include all common pets.<br>however, the pools can be adjusted!<br><br>learning-wise, this is the first time ive used any kindof keypress detection!']);
+
+        //list declarations
+        const potions = {
+            common: ['data', 'chameleon', 'dragon', 'fertilizer', 'illusion', 'stardust', 'weathers', 'plush', 'gale', 'insect'],
+            //for reference
+            all:    ['data', 'chameleon', 'dragon', 'fertilizer', 'illusion', 'stardust', 'weathers', 'plush', 'gale', 'insect', 'mermaid', 'halloween'],
+            pool: ['set pool please'],
+            poolName: 'undefined',
+
+            e: document.getElementById("potion"),
+            poolE: document.getElementById("potionPool"),
+
+            setPool(potionset) {
+                const potionPool = potions.common;
+                switch (potionset) {
+                    case "all":
+                        potionPool.push("mermaid");
+                        potionPool.push("halloween");
+                        break;
+                    case "mermaid":
+                        potionPool.push("mermaid");
+                        break;
+                    case "halloween":
+                        potionPool.push("halloween");
+                        break;
+                }
+
+                potions.pool = potionPool;
+                potions.poolName = potionset;
+                potions.poolE.innerHTML = potions.poolName;
+            }
+        }
+
+        const commonPets = {
+            generic: ['raincatcher', 'bubbler', 'psychrolute', 'seagull', 'dancing ghost', 'froomg', 'kiwiwik', 'teagon', 'seaweed serpent', 'moss turtle', 'taiyaki (matcha)',
+                'sea pancake', 'seraphim', 'lucky cat', 'catte', 'sparkler', 'platypus', 'brambat', 'creamgon', 'buttfish', 'grilled squib', 'counting prawn', 'pet rock', 'groub'],
+            pool: ['set pool please'],
+            poolName: 'undefined',
+
+            e: document.getElementById("pet"),
+            poolE: document.getElementById("petPool"),
+
+            grouped: {
+                pockat: ['normal', 'plush', 'fire', 'electric', 'grass', 'aqua', 'dark', 'magic', 'light', 'insect', 'air'],
+                furzeball: ['bicolor', 'pointed', 'solid', 'tricolor'],
+                gummyShark: ['great white', 'whale', 'hammerhead'],
+                stormCat: ['cumulus', 'cumulonimbus'],
+                torturedDroplet: ['tormented', 'cursed'],
+                longSnake: ['rattler', 'cobra'],
+                birb: ['lotus', 'branch', 'leaf', 'fossil'],
+                bear: ['flaming blaze', 'flaming soul', 'arcade', 'teddy', 'bird', 'starry', 'bunny', 'snow']
+            },
+
+            groupFriendlyName: {
+                all: 'pet',
+                pockat: 'pockat',
+                furzeball: 'furzeball',
+                gummyShark: 'gummy shark',
+                stormCat: 'storm cat',
+                torturedDroplet: 'tortured droplet',
+                longSnake: 'long snake',
+                birb: 'birb',
+                bear: 'bear'
+            },
+
+            setPool(keyword) {
+                var pool;
+                var poolName;
+                switch (keyword) {
+                    case "pockats":
+                        pool = commonPets.grouped.pockat;
+                        poolName = commonPets.groupFriendlyName.pockat;
+                        break;
+                    case "furzeballs":
+                        pool = commonPets.grouped.furzeball;
+                        poolName = commonPets.groupFriendlyName.furzeball;
+                        break;
+                    case "gummy sharks":
+                        pool = commonPets.grouped.gummyShark;
+                        poolName = commonPets.groupFriendlyName.gummyShark;
+                        break;
+                    case "storm cats":
+                        pool = commonPets.grouped.stormCat;
+                        poolName = commonPets.groupFriendlyName.stormCat;
+                        break;
+                    case "tortured droplets":
+                        pool = commonPets.grouped.torturedDroplet;
+                        poolName = commonPets.groupFriendlyName.torturedDroplet;
+                        break;
+                    case "long snakes":
+                        pool = commonPets.grouped.longSnake;
+                        poolName = commonPets.groupFriendlyName.longSnake;
+                        break;
+                    default:
+                        //all pets
+                        pool = commonPets.generic;
+                        poolName = commonPets.groupFriendlyName.all;
+
+                        for (petType in commonPets.grouped) {
+                            for (pet of commonPets.grouped[petType]) {
+                                pool.push(`${commonPets.groupFriendlyName[petType]} (${pet})`);
+                            }
+                        }
+                        //TODO: add other pet types
+                        break;
+
+                }
+
+                commonPets.pool = pool;
+                commonPets.poolName = poolName;
+                commonPets.poolE.innerHTML = commonPets.poolName;
+            }
+
+        }
+
+        function pickFromPool(poolObj) {
+            //console.log(`test: max is ${Math.round(1 * (poolObj.pool.length - 1))}, min is ${Math.round(0 * (poolObj.pool.length - 1)) }`);
+            return poolObj.pool[Math.round(Math.random() * (poolObj.pool.length - 1))];
+        }
+
+        function randomize() {
+            update(pickFromPool(potions), pickFromPool(commonPets));
+        }
+
+        function update(potion, pet) {
+            //TODO: check validity?
+            potions.e.innerHTML = potion;
+            commonPets.e.innerHTML = pet;
+        }
+
+        //on load
+        potions.setPool("all");
+        commonPets.setPool("all");
+
+        //event listeners
+        //pulled from https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key ty mozilla
+        window.addEventListener(
+            "keydown",
+            (event) => {
+                if (event.defaultPrevented) {
+                    return; // Do nothing if the event was already processed
+                }
+
+                switch (event.key) {
+                    case " ":
+                    case "Enter":
+                        // Do something for "enter" or "return" key press.
+                        randomize();
+                        break;
+                    default:
+                        return; // Quit when this doesn't handle the key event.
+                }
+
+                // Cancel the default action to avoid it being handled twice
+                event.preventDefault();
+            },
+            true
+        );
+    </script>
+</body>
+</html>
