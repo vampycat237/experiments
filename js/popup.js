@@ -44,13 +44,17 @@ function openPopUp(msg, title = "alert") {
 
 function resetPopUp() {
     //only used by inputPopUp
-    popup.input.style.display = "none";
-    popup.inputSend.style.display = "none";
+    if (popup.input !== null) {
+        popup.input.style.display = "none";
+        popup.inputSend.style.display = "none";
+    }
     //only used by fancyInfoPopUp
     popup.pageback.style.display = "none";
     popup.pagenext.style.display = "none";
     //only used by select
-    popup.selectContainer.style.display = "none";
+    if (popup.selectContainer !== null) {
+        popup.selectContainer.style.display = "none";
+    }
 }
 
 //specific popup stuff!
