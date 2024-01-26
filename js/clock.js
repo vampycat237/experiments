@@ -40,7 +40,7 @@ function timeSinceRecorded() {
     }
     else if (secondsSince >= (60 * 60 * 24)) {
         timeSince = Math.floor(secondsSince / (60 * 60 * 24));
-        timeUnit = " hours";
+        timeUnit = " days";
     }
     else if (secondsSince >= (60 * 60)) {
         timeSince = Math.floor(secondsSince / (60 * 60));
