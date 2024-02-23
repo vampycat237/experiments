@@ -1,12 +1,12 @@
 /*holds styles specific to watersort.html*/
 :root {
     --water_0 : transparent;
-    --water_1 : #00f;
-    --water_2 : #0ff;
-    --water_3 : #0f0;
-    --water_4 : #ff0;
-    --water_5 : #f00;
-    --water_6 : #f0f;
+    --water_1 : #3e6ddb;
+    --water_2 : #3bf6ff;
+    --water_3 : #25e125;
+    --water_4 : #ffff57;
+    --water_5 : #f58a19;
+    --water_6 : #ffabe2;
 
     --transition_time: 1s;
 }
