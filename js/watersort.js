@@ -9,8 +9,10 @@ const watersort = {
 //Matches the number representing the water type (as the index) to the css variable to determine its color. Unused right now but can be used for customization later!
 const waterTypeKey = [];
 const waterPresets = {
-    default:    ['#00f', '#0ff', '#0f0', '#ff0', '#f00', '#f0f'],
-    monochrome: ['#fff', '#ddd', '#bbb', '#999', '#777', '#555']
+    default:    ['#3e6ddb', '#3bf6ff', '#25e125', '#ffff57', '#f58a19', '#ffabe2'],
+    eyestrain:    ['#00f', '#0ff', '#0f0', '#ff0', '#f00', '#f0f'],
+    monochrome: ['#fff', '#ddd', '#bbb', '#999', '#777', '#555'],
+    warm:    ['#a939b3', '#55aab3', '#a8c229', '#ffcd57', '#f5850f', '#db3e3e']
     }
 //Holds the WaterTubes in play.
 var waterTubes = [];
