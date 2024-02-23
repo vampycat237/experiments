@@ -187,7 +187,7 @@ function setWaterColors(presetName) {
 //TODO
 //Generates a random level.
 function generateLevel() {
-    console.log("the man behind the slaughter"); //silly :3
+    console.log("the man behind the water"); //silly :3 (improved silliness thanks to my friend finalfloof)
     //Clears the previous tubes
     waterTubes = [];
     //Array that represents how many of the various colors we have "left". Starts at 4 for each.
