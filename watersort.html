@@ -56,7 +56,7 @@
             <button onclick="openPopUp('your save key is<br>'+saveLevel(),'save puzzle')">save puzzle</button>
             <button onclick="inputPopUp('input the save key you want to load<br>(this will wipe your current save)<br>(if you got this from somewhere else it might not be solveable)','load puzzle')">load puzzle</button>
             <button onclick="addEmptyTube()">add tube</button>
-            <button onclick="selectPopUp('customize colors', ['default','monochrome'], setWaterColors)">customize colors</button>
+            <button onclick="selectPopUp('customize colors', Object.keys(waterPresets), setWaterColors)">customize colors</button>
         </div>
 
         <div id="watersort">
