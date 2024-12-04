@@ -1,5 +1,6 @@
 /*holds styles specific to watersort.html*/
 :root {
+    /*Water colors. Can be changed in-game*/
     --water_0 : transparent;
     --water_1 : #3e6ddb;
     --water_2 : #3bf6ff;
@@ -9,6 +10,12 @@
     --water_6 : #ffabe2;
 
     --transition_time: 1s;
+
+    /*Tube size controls.*/
+    --tube_width: 10vw; /*Width controls are also used for individual water segment heights.*/
+    --tube_max_width: 84px;
+    --tube_borderrad: 5vw;
+    --tube_max_borderrad: 42px;
 }
 
 #controls {
@@ -27,10 +34,11 @@
 
 /*the containers for 4 measures of water. they should be roughly tube, glass, or beaker shaped*/
 .watertube {
-    width: 50px;
+    width: var(--tube_width);
+    max-width: var(--tube_max_width);
     border: solid var(--border_width);
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: var(--tube_max_borderrad);
+    border-bottom-right-radius: var(--tube_max_borderrad);
     overflow: clip;
     cursor: pointer;
 
@@ -52,7 +60,8 @@
 
 /*Water styles. Includes sizing and colors*/
 .water {
-    height: 50px;
+    height: var(--tube_width);
+    max-height: var(--tube_max_width);
 }
 
 .water0 {
@@ -89,12 +98,12 @@
         margin: 0;
         gap: 4vw;
     }
-    .watertube {
+    /*.watertube {
         width: 17vw;
         border-bottom-left-radius: 10vw;
         border-bottom-right-radius: 10vw;
     }
     .water {
         height: 17vw;
-    }
+    }*/
 }
