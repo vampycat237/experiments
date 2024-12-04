@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>vampy's lab</title>
+    <title>[watersort] vampy's lab</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="styles/watersort.css" />
 </head>
@@ -10,7 +10,7 @@
         <div class="topbar">
             <div class="title">
                 <div id="icon"></div>
-                <span>vampy's lab: another water sort clone</span>
+                <span>vampy's lab: water sort game</span>
             </div>
             <div class="nav">
                 <button id="info" title="info" onclick="fancyInfoPopUp()">i</button>
@@ -44,7 +44,7 @@
                     <button id="popup-select-send" onclick="closePopUp();">apply</button>
                 </div>
                 <div id="popup-misc-container">
-                    <button id="popup-victory-button" stylye="display:none;" onclick="closePopUp();generateLevel();$('#popup-victory-button').hide();">next puzzle</button>
+                    <button id="popup-victory-button" style="display:none;" onclick="closePopUp();generateLevel();$('#popup-victory-button').hide();">next puzzle</button>
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
             <!--Main game controls that need to be seen all the time-->
             <button onclick="generateLevel()">next puzzle</button>
             <button onclick="loadLevel(levelStartSave)">reset puzzle</button>
-            <button onclick="openPopUp('Undo is not yet implemented, sorry!', 'not implemented')">undo</button>
+            <button onclick="notImplementedPopUp('Undo')">undo</button>
             <button onclick="addEmptyTube()">add tube</button>
             <button onclick="$('#controls-extra').toggle()">...</button>
             
@@ -79,6 +79,7 @@
     <script src="js/popup.js"></script>
     <script src="js/watersort.js"></script>
     <script src="js/popup_victory.js"></script>
+    <script src="js/popup_notimplemented.js"></script>
     <script>
         info.pages.push(['watersort', 'its one of those water color sort clone games!<br>im lowkey obsessed with these tbh<br>anyway its pretty straightforward! same colors can stack on top of each other, sort them all to full tubes to win!']);
         info.pages.push(['watersort (cont)', 'all the puzzles are pseudorandomly generated.<br>"new puzzle" randomizes a new one,<br>"reset puzzle" undoes all your moves but keeps the same puzzle,<br>save and load work by giving you a "save key", no cookies involved!<br>also there is no limit on how many tubes you can add. go wild!']);

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>vampy's lab [clock]</title>
+    <title>[clock] vampy's lab</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -50,13 +50,16 @@
                     <span id="how-long-since">x seconds since</span>
                     <span> the recorded time</span>
                 </p>
-                <button onclick="updateClock();">update clock</button>
                 <button onclick="inputPopUp('input new recorded time below.');">set recorded time</button>
+                <button onclick="updateClock();">update clock</button>
+                <button onclick="notImplementedPopUp('Clock auto-updates', true)" style="display:none;">toggle clock auto-updates</button>
+                <button onclick="notImplementedPopUp('Time zones', true)" style="display:none;">time zone config...</button>
             </div>
         </div>
     </div>
     <script src="js/popup.js"></script>
     <script src="js/clock.js"></script>
+    <script src="js/popup_notimplemented.js"></script>
     <script>
         info.pages.push(['clock', 'this one is mostly me figuring out the Date object, and playing with ideas the bayfox strange merchant gave me :)<br><br>times should be in your local time zone! support for entering a time in another time zone coming soon.']);
     </script>
