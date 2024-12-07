@@ -49,8 +49,12 @@ class VictoryPopUp {
     }
 
     open() {
-        // Open with current data
+        // Set currentPopUp
+        currentPopUp = VictoryPopUp;
+        // Show buttons
         $('#popup-victory-button').show();
+
+        // Open with current data
         openPopUp(this.getMsg(), this.getTitle());
         // Fetching those values increments them afterwards, so we don't have to worry about that.
 
@@ -71,6 +75,12 @@ class VictoryPopUp {
             // then, increment iRandom (looping around if too large)
             this.#randomIndex[0]++;
         }
+    }
+
+    static close() {
+        // Hide button
+        $('#popup-victory-button').hide();
+        closePopUp();
     }
 }
 

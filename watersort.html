@@ -50,14 +50,16 @@
         </div>
 
         <div id="controls">
-            <!--Main game controls that need to be seen all the time-->
-            <button onclick="generateLevel()">next puzzle</button>
-            <button onclick="loadLevel(levelStartSave)">reset puzzle</button>
-            <button onclick="notImplementedPopUp('Undo')">undo</button>
-            <button onclick="addEmptyTube()">add tube</button>
-            <button onclick="$('#controls-extra').toggle()">...</button>
+            <div class="gallery">
+                <!--Main game controls that need to be seen all the time-->
+                <button onclick="generateLevel()">next puzzle</button>
+                <button onclick="loadLevel(levelStartSave)">reset puzzle</button>
+                <button onclick="notImplementedPopUp('Undo')">undo</button>
+                <button onclick="addEmptyTube()">add tube</button>
+                <button onclick="$('#controls-extra').toggle()">...</button>
+            </div>
             
-            <div id="controls-extra" style="display:none;">
+            <div id="controls-extra" class="gallery" style="display:none;">
                 <!--Extraneous controls like save/load/customize-->
                 <button onclick="openPopUp('your save key is<br>'+saveLevel(),'save puzzle')">save puzzle</button>
                 <button onclick="inputPopUp('input the save key you want to load!<br>this will wipe your current save.<br>loaded puzzles may be unsolveable if the key has been tampered with.','load puzzle')">load puzzle</button>
@@ -81,8 +83,34 @@
     <script src="js/popup_victory.js"></script>
     <script src="js/popup_notimplemented.js"></script>
     <script>
-        info.pages.push(['watersort', 'its one of those water color sort clone games!<br>im lowkey obsessed with these tbh<br>anyway its pretty straightforward! same colors can stack on top of each other, sort them all to full tubes to win!']);
-        info.pages.push(['watersort (cont)', 'all the puzzles are pseudorandomly generated.<br>"new puzzle" randomizes a new one,<br>"reset puzzle" undoes all your moves but keeps the same puzzle,<br>save and load work by giving you a "save key", no cookies involved!<br>also there is no limit on how many tubes you can add. go wild!']);
+        info.pages.push([
+            'watersort', 
+            `
+            <p>
+                it's one of those water color sort clone games!
+                <br>
+                i'm lowkey obsessed with these tbh.
+            </p>
+            <p>
+                anyway, it's pretty straightforward!
+                <br>
+                same colors can stack on top of each other.
+                <br>
+                sort them all to full tubes to win!
+            </p>
+            `
+        ]);
+        info.pages.push([
+            'watersort (cont)', 
+            `
+            all the puzzles are pseudorandomly generated.
+
+            "new puzzle" randomizes a new one,
+            "reset puzzle" undoes all your moves but keeps the same puzzle,
+            save and load work by giving you a "save key", no cookies involved!
+            also there is no limit on how many tubes you can add. go wild!
+            `
+        ]);
         info.pages.push(['watersort (colors)', 'the color customization lets you choose between presets for now btw']);
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>

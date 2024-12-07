@@ -19,6 +19,12 @@ const popup = {
     selectSend: document.getElementById("popup-select-send")
 }
 
+/** 
+ * Reference to the currently active PopUp object, if any.
+ * Used by the generic closePopUp() function to run the objects .close() method.
+ */
+var currentPopUp = null;
+
 //each page adds their own bit to "pages" :D
 const info = {
     tagline: 'welcome to the lab :)', //default tagline
@@ -31,6 +37,11 @@ const info = {
 
 //generic popup functions
 function closePopUp() {
+    // Handle special PopUps
+    if (currentPopUp != null) {
+        currentPopUp.close();
+        currentPopUp = null;
+    }
     popup.container.style.display = "none";
     resetPopUp();
 }

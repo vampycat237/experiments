@@ -16,16 +16,24 @@
     --tube_max_width: 84px;
     --tube_borderrad: 5vw;
     --tube_max_borderrad: 42px;
+
+    /*Number of tubes in play. To be updated by the code.*/
+    --num_tubes: 8;
 }
 
 #controls {
-    padding-bottom: var(--spacing);
+    padding-top: var(--spacing);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
 }
 
 #watersort {
+    --double-spacing: calc(2 * var(--spacing));
+
     margin-left: var(--spacing);
     margin-right: var(--spacing);
-    gap: var(--spacing);
+    gap: var(--double-spacing);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -92,11 +100,21 @@
     background-color: var(--water_6);
 }
 
-/*mobile phone (small screens, 640px or less)*/
-@media screen and (max-width: 640px) {
+/*mobile phone (small screens, 980px or less)*/
+@media screen and (max-width: 980px) {
+    :root {
+        /*Tube size controls.*/
+        --tube_width: 15vw; /*Width controls are also used for individual water segment heights.*/
+        --tube_max_width: calc(1.5 * 84px);
+        --tube_borderrad: calc(2/ var(--tube_width));
+        --tube_max_borderrad: calc(1.5 * 42px);
+    }
+
     #watersort {
-        margin: 0;
-        gap: 4vw;
+        margin: auto;
+
+        width: calc(var(--num_tubes)/2 * (var(--tube_width) + 2*var(--spacing)));
+        justify-content: space-around;
     }
     /*.watertube {
         width: 17vw;

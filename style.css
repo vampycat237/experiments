@@ -23,6 +23,7 @@
 
     --transition_time: 2s;
     --font_size: 18px;
+    --button_font_size: 14px;
     --spacing: 10px;
     --border_width: 2px;
 }
@@ -54,7 +55,7 @@ strong {
 /*BUTTON STYLES*/
 button, .nav > a {
     font-family: Softy, "Softy Sharp", "Lucida Console", "Courier New", monospace;
-    font-size: 14px;
+    font-size: var(--button_font_size);
 }
 
 button, a {
@@ -143,26 +144,44 @@ button, .gallery-item > a, .nav > a {
     padding: var(--spacing);
 }
 
-/*media query breakpoints based on https://docs.microsoft.com/en-us/windows/apps/design/layout/screen-sizes-and-breakpoints-for-responsive-design*/
-/*tablet/laptop (medium screens, 1007px - 641px)*/
-@media screen and (max-width: 1007px) {
+/*media query breakpoints defined based on my laptop and firefox's responsive design tools*/
+/*tablet/laptop (medium screens, 1280px - 981px)*/
+@media screen and (max-width: 1280px) {
+    :root {
+        --font_size: 22px;
+        --button_font_size: 18px;
+
+        --spacing: 14px;
+    }
     #popup {
         left: 30%;
         right: 30%;
+        font-size: 1.2em;
+    }
+    button, .gallery-item > a, .nav > a {
+        font-size: 1.2em;
+        font-family: "Softy Sharp", Softy, "Lucida Console", "Courier New", monospace;
+    }
+    .nav > * {
+        width: 2em;
     }
 }
 
-/*mobile phone (small screens, 640px or less)*/
-@media screen and (max-width: 640px) {
+/*mobile phone (small screens, 980px or less)*/
+@media screen and (max-width: 980px) {
+    :root {
+        --font_size: 24px;
+        --button_font_size: 20px;
+
+        --spacing: 16px;
+    }
     #popup {
         left: 10%;
         right: 10%;
+        font-size: 2em;
     }
-    :root {
-        --font_size: 24px;
-    }
-    button, .nav > a {
-        font-size: 18px;
+    button, .gallery-item > a, .nav > a {
+        font-size: 1.5em;
     }
     #icon {
         min-width: 40px;
