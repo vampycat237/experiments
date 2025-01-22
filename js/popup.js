@@ -36,6 +36,10 @@ const info = {
 }
 
 //generic popup functions
+/**
+ * Called by the Close button in HTML.
+ * Do not call from Popup.close() methods!!
+ */
 function closePopUp() {
     // Handle special PopUps
     if (currentPopUp != null) {

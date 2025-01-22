@@ -80,7 +80,6 @@ class VictoryPopUp {
     static close() {
         // Hide button
         $('#popup-victory-button').hide();
-        closePopUp();
     }
 }
 

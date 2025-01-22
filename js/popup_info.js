@@ -144,7 +144,6 @@ class InfoPopUp {
     static close() {
         // hide page buttons
         $("#popup-pageback").hide(); $("#popup-pagenext").hide();
-        closePopUp();
     }
 }
 
