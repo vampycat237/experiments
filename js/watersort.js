@@ -13,15 +13,32 @@ const waterPresets = {
     eyestrain:    ['#00f', '#0ff', '#0f0', '#ff0', '#f00', '#f0f'],
     // this one is species so it can have contrast
     monochrome: [
+        // pure white
         '#fff', 
-        'repeating-linear-gradient(135deg, #fff, #fff var(--line_width), #999 var(--line_width), #999 var(--line_width_2x))', 
-        'repeating-linear-gradient(135deg, #999, #999 var(--line_width), #555 var(--line_width), #555 var(--line_width_2x))', 
-        'repeating-linear-gradient(180deg, #bbb, #bbb var(--line_width), transparent var(--line_width), transparent var(--line_width_2x)), repeating-linear-gradient(90deg, #bbb, #bbb var(--line_width), #999 var(--line_width), #999 var(--line_width_2x))', 
-        'repeating-linear-gradient(180deg, transparent, transparent var(--line_width), #555 var(--line_width), #555 var(--line_width_2x)), repeating-linear-gradient(90deg, #777, #777 var(--line_width), #555 var(--line_width), #555 var(--line_width_2x))', 
+        // striped white & grey
+        '#bbb', //'repeating-linear-gradient(135deg, #fff, #fff var(--line_width), #999 var(--line_width), #999 var(--line_width_2x))', 
+        // striped grey and off-black
+        '#999', //'repeating-linear-gradient(135deg, #999, #999 var(--line_width), #555 var(--line_width), #555 var(--line_width_2x))', 
+        // waffle light & med grey
+        '#999', //'repeating-linear-gradient(180deg, #bbb, #bbb var(--line_width), transparent var(--line_width), transparent var(--line_width_2x)), repeating-linear-gradient(90deg, #bbb, #bbb var(--line_width), #999 var(--line_width), #999 var(--line_width_2x))', 
+        // waffle dark grey & off-black
+        '#777', //'repeating-linear-gradient(180deg, transparent, transparent var(--line_width), #555 var(--line_width), #555 var(--line_width_2x)), repeating-linear-gradient(90deg, #777, #777 var(--line_width), #555 var(--line_width), #555 var(--line_width_2x))', 
         '#555'
     ],
     warm:    ['#a939b3', '#55aab3', '#a8c229', '#ffcd57', '#f5850f', '#db3e3e']
     }
+
+// flag to toggle if we're using monochrome styles or not
+let isMonochrome = false;
+const monochromeStyles = [
+    'water-solid',
+    'water-striped',
+    'water-striped',
+    'water-waffle',
+    'water-waffle',
+    'water-solid'
+]
+
 /** 
  * Holds the WaterTubes in play. 
  * @type WaterTube[]
@@ -254,13 +271,31 @@ class WaterTube {
         return parseInt(this.toString());
     }
 
+    /**
+     * Returns the correct water styles for the water at the given index.
+     * @param {number} index 
+     */
+    #getWaterStyle(index) {
+        // in normal scenarios, we just want "water water# water-solid"
+        // but for monochrome we need to do weird stuff. we'll hardcode that for now
+
+        if (isMonochrome) {
+            // monochrome weirdness
+            return 'water water' + this.contents[index] + ' ' + monochromeStyles[this.contents[index]-1];
+        }
+        else {
+            // normal
+            return 'water water' + this.contents[index] + ' ' + 'water-solid';
+        }
+    }
+
     toHTML() {
         const str = [];
         str.push(`<div class="watertube" id="${this.ID}" onclick="select(${this.ID})">`);
-        str.push(`   <div class="water water${this.contents[3]}"></div>`);
-        str.push(`   <div class="water water${this.contents[2]}"></div>`);
-        str.push(`   <div class="water water${this.contents[1]}"></div>`);
-        str.push(`   <div class="water water${this.contents[0]}"></div>`);
+        str.push(`   <div class="${this.#getWaterStyle(3)}"></div>`);
+        str.push(`   <div class="${this.#getWaterStyle(2)}"></div>`);
+        str.push(`   <div class="${this.#getWaterStyle(1)}"></div>`);
+        str.push(`   <div class="${this.#getWaterStyle(0)}"></div>`);
         str.push(`</div>`);
 
         return str.join("\n");
@@ -287,10 +322,16 @@ function getWaterColors() {
  */
 function setWaterColors(presetName) {
     const root = document.querySelector(':root');
+
+    // set isMonochrome
+    isMonochrome = presetName == 'monochrome';
+
     for (let i = 1; i <= 6; i++) {
         root.style.setProperty('--water_'+i, waterPresets[presetName][i-1]);
     }
-    
+
+    // rendering afterwards is really important so the monochrome styles get applied and removed
+    render();
 }
 
 /** Generates a random level. */

@@ -11,6 +11,10 @@
 
     --transition_time: 1s;
 
+    /*Generic water color variables to be overwritten by the water color types*/
+    --water_main : #c060c0;
+    --water_secondary : #006000;
+
     /*Tube size controls.*/
     --tube_width: 10vw; /*Width controls are also used for individual water segment heights.*/
     --tube_max_width: 84px;
@@ -75,32 +79,75 @@
     --line_width_2x: calc(2 * var(--line_width));
 }
 
+/*Empty tube color*/
 .water0 {
-    background: var(--water_0);
+    --water_main: var(--water_0);
 }
 
+/*All other water colors.*/
 .water1 {
-    background: var(--water_1);
+    --water_main: var(--water_1);
+    --water_secondary: var(--water_1); /*Uses itself as its secondary color.*/
 }
 
 .water2 {
-    background: var(--water_2);
+    --water_main: var(--water_2);
+    --water_secondary: var(--water_1); /*Uses water1 as its secondary color.*/
 }
 
 .water3 {
-    background: var(--water_3);
+    --water_main: var(--water_3);
+    --water_secondary: var(--water_6); /*Uses water6 as its secondary color.*/
 }
 
 .water4 {
-    background: var(--water_4);
+    --water_main: var(--water_4);
+    --water_secondary: var(--water_2); /*Uses water2 as its secondary color.*/
 }
 
 .water5 {
-    background: var(--water_5);
+    --water_main: var(--water_5);
+    --water_secondary: var(--water_6); /*Uses water6 as its secondary color.*/
 }
 
 .water6 {
-    background: var(--water_6);
+    --water_main: var(--water_6);
+    --water_secondary: var(--water_6); /*Uses itself as its secondary color.*/
+}
+
+/*Normal water color mode - main color is the full body*/
+.water.water-solid {
+    background : var(--water_main);
+}
+
+/*Striped pattern. For monochrome*/
+.water.water-striped {
+    background: repeating-linear-gradient(
+        135deg, 
+        var(--water_main), 
+        var(--water_main) var(--line_width), 
+        var(--water_secondary) var(--line_width), 
+        var(--water_secondary) var(--line_width_2x)
+        );
+}
+
+/*'Waffle' like pattern. For monochrome*/
+.water.water-waffle {
+    background: 
+        repeating-linear-gradient(
+            180deg, 
+            var(--water_main), 
+            var(--water_main) var(--line_width), 
+            transparent var(--line_width), 
+            transparent var(--line_width_2x)
+        ), 
+        repeating-linear-gradient(
+            90deg, 
+            var(--water_main), 
+            var(--water_main) var(--line_width), 
+            var(--water_secondary) var(--line_width), 
+            var(--water_secondary) var(--line_width_2x)
+        );
 }
 
 /*mobile phone (small screens, 980px or less)*/
