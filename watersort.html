@@ -101,17 +101,38 @@
             `
         ]);
         info.pages.push([
-            'watersort (cont)', 
+            'watersort (buttons)', 
             `
-            all the puzzles are pseudorandomly generated.
-
-            "new puzzle" randomizes a new one,
-            "reset puzzle" undoes all your moves but keeps the same puzzle,
-            save and load work by giving you a "save key", no cookies involved!
-            also there is no limit on how many tubes you can add. go wild!
+            <ul>
+                <li>"next puzzle" randomizes a new level.
+                    (all levels are procedurally generated)</li>
+                <li>"reset puzzle" undoes all your moves, 
+                    but keeps the same puzzle</li>
+                <li>"undo" is not implemented, sorry</li>
+                <li>"add tube" adds a new empty tube</li>
+            </ul>
             `
         ]);
-        info.pages.push(['watersort (colors)', 'the color customization lets you choose between presets for now btw']);
+        info.pages.push([
+            'watersort (save/load)',
+            `
+            save and load work by giving you a "save key", 
+            no cookies involved!
+            <br>
+            it's not encrypted or anything, so you could 
+            edit them and load un-solvable puzzles i guess.
+            `
+        ])
+        info.pages.push([
+            'watersort (colors)', 
+            `
+            the color customization lets you choose 
+            between color presets.
+            <br>
+            it's pretty basic and doesn't save if you 
+            refresh the page.
+            `
+        ]);
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </body>
