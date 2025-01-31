@@ -70,34 +70,37 @@
 .water {
     height: var(--tube_width);
     max-height: var(--tube_max_width);
+    
+    --line_width: calc(0.116 * var(--tube_width));
+    --line_width_2x: calc(2 * var(--line_width));
 }
 
 .water0 {
-    background-color: var(--water_0);
+    background: var(--water_0);
 }
 
 .water1 {
-    background-color: var(--water_1);
+    background: var(--water_1);
 }
 
 .water2 {
-    background-color: var(--water_2);
+    background: var(--water_2);
 }
 
 .water3 {
-    background-color: var(--water_3);
+    background: var(--water_3);
 }
 
 .water4 {
-    background-color: var(--water_4);
+    background: var(--water_4);
 }
 
 .water5 {
-    background-color: var(--water_5);
+    background: var(--water_5);
 }
 
 .water6 {
-    background-color: var(--water_6);
+    background: var(--water_6);
 }
 
 /*mobile phone (small screens, 980px or less)*/

@@ -11,7 +11,15 @@ const waterTypeKey = [];
 const waterPresets = {
     default:    ['#3e6ddb', '#3bf6ff', '#25e125', '#ffff57', '#f58a19', '#ffabe2'],
     eyestrain:    ['#00f', '#0ff', '#0f0', '#ff0', '#f00', '#f0f'],
-    monochrome: ['#fff', '#ddd', '#bbb', '#999', '#777', '#555'],
+    // this one is species so it can have contrast
+    monochrome: [
+        '#fff', 
+        'repeating-linear-gradient(135deg, #fff, #fff var(--line_width), #999 var(--line_width), #999 var(--line_width_2x))', 
+        'repeating-linear-gradient(135deg, #999, #999 var(--line_width), #555 var(--line_width), #555 var(--line_width_2x))', 
+        'repeating-linear-gradient(180deg, #bbb, #bbb var(--line_width), transparent var(--line_width), transparent var(--line_width_2x)), repeating-linear-gradient(90deg, #bbb, #bbb var(--line_width), #999 var(--line_width), #999 var(--line_width_2x))', 
+        'repeating-linear-gradient(180deg, transparent, transparent var(--line_width), #555 var(--line_width), #555 var(--line_width_2x)), repeating-linear-gradient(90deg, #777, #777 var(--line_width), #555 var(--line_width), #555 var(--line_width_2x))', 
+        '#555'
+    ],
     warm:    ['#a939b3', '#55aab3', '#a8c229', '#ffcd57', '#f5850f', '#db3e3e']
     }
 /** 
